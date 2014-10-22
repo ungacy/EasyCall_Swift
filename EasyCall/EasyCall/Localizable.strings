@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  EasyCall
+
+  Created by Ungacy Tao on 14-10-17.
+  Copyright (c) 2014年 com.ungacy. All rights reserved.
+*/
+"help" = "帮助";
+"dismiss" = "返回";
+"choose number" = "选择号码";

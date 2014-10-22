@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  UTEasy
+
+  Created by Ungacy Tao on 14-10-16.
+  Copyright (c) 2014年 com.ungacy. All rights reserved.
+*/
+"contactmanager" = "管理联系人";
+"help" = "帮助";
+"dismiss" = "返回";
