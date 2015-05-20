@@ -21,7 +21,6 @@
 		BD42254F19F106BB000802FC /* EasyBookKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BD42254E19F106BB000802FC /* EasyBookKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD42255B19F106BB000802FC /* EasyBookKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42255A19F106BB000802FC /* EasyBookKitTests.swift */; };
 		BD42255E19F106BB000802FC /* EasyBookKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD42254A19F106BB000802FC /* EasyBookKit.framework */; };
-		BD42255F19F106BB000802FC /* EasyBookKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD42254A19F106BB000802FC /* EasyBookKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD42256A19F10705000802FC /* EasyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42256919F10705000802FC /* EasyBook.swift */; };
 		BD42256C19F108A0000802FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD42256B19F108A0000802FC /* Localizable.strings */; };
 		BD42257419F1093F000802FC /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD42257319F1093F000802FC /* NotificationCenter.framework */; };
@@ -34,6 +33,7 @@
 		BD42258B19F10C76000802FC /* EasyBookKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD42254A19F106BB000802FC /* EasyBookKit.framework */; };
 		BD42258E19F10CC2000802FC /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD42258C19F10CC2000802FC /* iTunesArtwork@2x.png */; };
 		BD42258F19F10CC2000802FC /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = BD42258D19F10CC2000802FC /* iTunesArtwork.png */; };
+		BDDBDDED1B0C298B00FF48F8 /* EasyBookKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD42254A19F106BB000802FC /* EasyBookKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BD42255F19F106BB000802FC /* EasyBookKit.framework in Embed Frameworks */,
+				BDDBDDED1B0C298B00FF48F8 /* EasyBookKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

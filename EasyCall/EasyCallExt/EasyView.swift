@@ -52,16 +52,16 @@ class EasyView: UIView {
         ]
         
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[callButton]|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: views))
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[nameLabel]|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: views))
         let verticalVisualFormat = "V:|[callButton][nameLabel(20)]|"
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(verticalVisualFormat,
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: views))
 

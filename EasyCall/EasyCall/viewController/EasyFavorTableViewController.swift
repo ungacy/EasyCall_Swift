@@ -32,8 +32,8 @@ class EasyFavorTableViewController: UIViewController,UITableViewDelegate,UITable
         tableView.delegate = self
         tableView.dataSource = self
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: nil, views: ["tableView":tableView])
-        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: nil, views: ["tableView":tableView])
+        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["tableView":tableView])
+        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["tableView":tableView])
         var constraints = [AnyObject]()
         constraints.extend(horizontalConstraint)
         constraints.extend(verticalConstraint)
@@ -101,7 +101,7 @@ class EasyFavorTableViewController: UIViewController,UITableViewDelegate,UITable
         return nil
     }
     // Override to support editing the table view.
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             let easy = addressBook.addedRecordArray[indexPath.row]
@@ -118,9 +118,9 @@ class EasyFavorTableViewController: UIViewController,UITableViewDelegate,UITable
         }
         println(idArray)
         let userDefault = NSUserDefaults(suiteName: "group.ai.ungacy.uteasy")
-        userDefault.setObject(idArray.componentsJoinedByString(";"), forKey: "group.ai.ungacy.uteasy.added")
+        userDefault!.setObject(idArray.componentsJoinedByString(";"), forKey: "group.ai.ungacy.uteasy.added")
         
-        userDefault.synchronize()
+        userDefault!.synchronize()
     }
     /*
     // Override to support rearranging the table view.

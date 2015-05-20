@@ -51,11 +51,11 @@ class EasyGuiderView: UIView {
         addSubview(display)
         display.userInteractionEnabled = true
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[display]|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: ["display":display]))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[display]|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: ["display":display]))
         
@@ -69,11 +69,11 @@ class EasyGuiderView: UIView {
         previous.userInteractionEnabled = true
 //        previous.alpha = 0
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[previous]|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: ["previous":previous]))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[previous]|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: ["previous":previous]))
         
@@ -113,11 +113,11 @@ class EasyGuiderView: UIView {
         let superview = self.superview
         if let newSuperview = superview {
             newSuperview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[self]|",
-                options: NSLayoutFormatOptions.fromRaw(0)!,
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: ["self":self]))
             newSuperview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[self]|",
-                options: NSLayoutFormatOptions.fromRaw(0)!,
+                options: NSLayoutFormatOptions(rawValue: 0),
                 metrics: nil,
                 views: ["self":self]))
         }

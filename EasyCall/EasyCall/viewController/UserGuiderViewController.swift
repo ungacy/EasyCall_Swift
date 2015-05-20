@@ -28,8 +28,8 @@ class UserGuiderViewController: UIViewController,UITableViewDelegate,UITableView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: nil, views: ["tableView":tableView])
-        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: nil, views: ["tableView":tableView])
+        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["tableView":tableView])
+        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["tableView":tableView])
         var constraints = [AnyObject]()
         constraints.extend(horizontalConstraint)
         constraints.extend(verticalConstraint)

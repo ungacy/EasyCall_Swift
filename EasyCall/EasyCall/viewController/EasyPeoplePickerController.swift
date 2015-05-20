@@ -25,8 +25,8 @@ class EasyPeoplePickerController: UIViewController,UITableViewDelegate,UITableVi
     }
     func setupUI() {
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: nil, views: ["tableView":tableView])
-        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-22-[tableView]-44-|", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: nil, views: ["tableView":tableView])
+        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["tableView":tableView])
+        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-22-[tableView]-44-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["tableView":tableView])
         var constraints = [AnyObject]()
         constraints.extend(horizontalConstraint)
         constraints.extend(verticalConstraint)
@@ -84,7 +84,7 @@ class EasyPeoplePickerController: UIViewController,UITableViewDelegate,UITableVi
                 action.showInView(view)
                 
             } else {
-                easy.phone = easy.phoneArray?.first?.values.first?
+                easy.phone = easy.phoneArray?.first?.values.first
             }
         }
         
@@ -105,11 +105,23 @@ class EasyPeoplePickerController: UIViewController,UITableViewDelegate,UITableVi
         }
         println(idArray)
         let userDefault = NSUserDefaults(suiteName: "group.ai.ungacy.uteasy")
-        userDefault.setObject(idArray.componentsJoinedByString(";"), forKey: "group.ai.ungacy.uteasy.added")
+        userDefault!.setObject(idArray.componentsJoinedByString(";"), forKey: "group.ai.ungacy.uteasy.added")
         
-        userDefault.synchronize()
+        userDefault!.synchronize()
     }
 //    override func prefersStatusBarHidden() -> Bool {
 //        return true
 //    }
+}
+extension Array {
+    func componentsJoinedByString(separator: String) -> String {
+        var str : String = ""
+        for (idx, item) in enumerate(self) {
+            str += "\(item)"
+            if idx < self.count-1 {
+                str += separator
+            }
+        }
+        return str
+    }
 }

@@ -19,7 +19,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func setupData() {
         let userDefault = NSUserDefaults(suiteName: "group.ai.ungacy.uteasy")
-        let idString = userDefault.stringForKey("group.ai.ungacy.uteasy.added");
+        let idString = userDefault!.stringForKey("group.ai.ungacy.uteasy.added");
         
         if let string = idString {
             let array = string.componentsSeparatedByString(";")
@@ -80,8 +80,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                     viewsDict["placeholder"] = placeholder
                     superview.addSubview(placeholder)
                     
-                    let metricsVertical = ["viewHeight": 84.0 * line]
-                    let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-viewHeight-[addButton(84)]", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: metricsVertical, views: ["addButton":addButton])
+                    let metricsVertical = ["viewHeight": (84 * line)]
+                    let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-viewHeight-[addButton(84)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metricsVertical, views: ["addButton":addButton])
                     superview.addConstraints(verticalConstraint)
                     horizontalVisualFormat = "H:|[currentView][addButton(currentView)][placeholder(currentView)]|"
                 case 2 :
@@ -96,8 +96,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                         addButton.callButton?.addTarget(self, action: "recordManager:", forControlEvents: UIControlEvents.TouchUpInside)
                         viewsDict["addButton"] = addButton
                         superview.addSubview(addButton)
-                        let metricsVertical = ["viewHeight": 84.0 * line]
-                        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-viewHeight-[addButton(84)]", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: metricsVertical, views: ["addButton":addButton])
+                        let metricsVertical = ["viewHeight": 84 * line]
+                        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-viewHeight-[addButton(84)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metricsVertical, views: ["addButton":addButton])
                         superview.addConstraints(verticalConstraint)
                         
                         horizontalVisualFormat = "H:|[leftView][currentView(leftView)][addButton(leftView)]|"
@@ -129,10 +129,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                     viewsDict["leftView"] = leftView as? EasyView
                 }
             }
-            let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat(horizontalVisualFormat, options: NSLayoutFormatOptions.fromRaw(0)!, metrics: nil, views:viewsDict)
+            let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat(horizontalVisualFormat, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views:viewsDict)
             superview.addConstraints(horizontalConstraint)
-            let metricsVertical = ["viewHeight": 84.0 * line]
-            let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-viewHeight-[currentView(84)]", options: NSLayoutFormatOptions.fromRaw(0)!, metrics: metricsVertical, views: ["currentView":currentView])
+            let metricsVertical = ["viewHeight": 84 * line]
+            let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-viewHeight-[currentView(84)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metricsVertical, views: ["currentView":currentView])
             
             superview.addConstraints(verticalConstraint)
             
@@ -152,20 +152,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         view.addSubview(button!)
         viewArray.append(button!)
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[button]-30-|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: ["button":button!]))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[button(20)]|",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: ["button":button!]))
         var line = numberOfLine
         if rowInLastLine > 0 {
             line += 1
         }
-        let metricsVertical = ["viewHeight": 84.0 * line + 40]
+        let metricsVertical = ["viewHeight": 84 * line + 40]
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[view(viewHeight)]",
-            options: NSLayoutFormatOptions.fromRaw(0)!,
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: metricsVertical,
             views: ["view":view]))
         
@@ -181,7 +181,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         println(urlString)
         let url = NSURL(string: urlString)
-        extensionContext?.openURL(url, completionHandler: { (flag) -> Void in
+        extensionContext?.openURL(url!, completionHandler: { (flag) -> Void in
             
         })
     }
@@ -193,7 +193,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let number = phone {
             
             var url = NSURL(string: "tel://" + phone!)
-            extensionContext?.openURL(url, completionHandler: { (flag) -> Void in
+            extensionContext?.openURL(url!, completionHandler: { (flag) -> Void in
                 
             })
         }
@@ -215,7 +215,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if rowInLastLine > 0 {
             line += 1
         }
-        preferredContentSize = CGSizeMake(preferredContentSize.width, CGFloat(line * 84.0) + 40)
+        preferredContentSize = CGSizeMake(preferredContentSize.width, CGFloat(line * 84) + 40)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

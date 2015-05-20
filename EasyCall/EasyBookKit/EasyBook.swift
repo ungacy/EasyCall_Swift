@@ -102,7 +102,7 @@ public class EasyBook: NSObject {
     }
 }
 
-public extension Array {
+extension Array {
     func componentsJoinedByString(separator: String) -> String {
         var str : String = ""
         for (idx, item) in enumerate(self) {
@@ -122,9 +122,9 @@ extension EasyRecord {
             if  count > 0 {
                 self.phoneArray = [[String:String]]()
                 for var index = 0; index < count;++index {
-                    let value: String? = ABMultiValueCopyValueAtIndex(values,index).takeRetainedValue() as? NSString
+                    let value: String? = ABMultiValueCopyValueAtIndex(values,index).takeRetainedValue() as? String
                     let label = ABMultiValueCopyLabelAtIndex(values,index).takeRetainedValue()
-                    let key: String = ABAddressBookCopyLocalizedLabel(label).takeRetainedValue() as NSString
+                    let key: String = ABAddressBookCopyLocalizedLabel(label).takeRetainedValue() as NSString as String
                     if let string = value {
                         self.phoneArray?.append([key:string])
                     }
@@ -162,7 +162,7 @@ public class EasyRecord {
     class func createWith(record: ABRecordRef) -> EasyRecord?{
         let easy = EasyRecord()
         easy.recordID = ABRecordGetRecordID(record)
-        easy.compositeName = ABRecordCopyCompositeName(record).takeRetainedValue() as NSString
+        easy.compositeName = ABRecordCopyCompositeName(record).takeRetainedValue() as NSString as String
         easy.values(record, property: kABPersonPhoneProperty)
         
 //#if !NDEBUG

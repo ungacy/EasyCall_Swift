@@ -21,7 +21,7 @@ class EasyViewController: UITabBarController,UITabBarControllerDelegate,UINaviga
 
     func setupData() {
         let userDefault = NSUserDefaults(suiteName: "group.ai.ungacy.uteasy")
-        let idString = userDefault.stringForKey("group.ai.ungacy.uteasy.added");
+        let idString = userDefault!.stringForKey("group.ai.ungacy.uteasy.added");
 //        println(idString)
         var idPhoneDict = [ABRecordID:String]()
         if let string = idString {
